@@ -60,7 +60,7 @@ def gen_train(ad_file,user_file,log_file,trainfile,testfile):
 				(user_id,time_stamp,adgroup_id,pid,nonclk,clk)=line.split(",")
 				tm=abs(int(time_stamp))
 				tm=time.localtime(tm)
-				tm=time.strftime('%Y-%m-%d %H:%M:%S',tm)
+				time_format=time.strftime('%Y-%m-%d %H:%M:%S',tm)
 				dt=time.strftime('%Y-%m-%d',tm)
 			except:
 				print("Error line:",line)
@@ -81,9 +81,9 @@ def gen_train(ad_file,user_file,log_file,trainfile,testfile):
 				ad_feat=""
 			
 			if dt=="20170513":
-				fdout1.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,tm,pid,user_feat,ad_feat,clk))
+				fdout1.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,time_format,pid,user_feat,ad_feat,clk))
 			else:
-				fdout.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,tm,pid,user_feat,ad_feat,clk))
+				fdout.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,time_format,pid,user_feat,ad_feat,clk))
 	
 	fdout.close()
 	fdout1.close()
