@@ -80,7 +80,7 @@ def gen_train(ad_file,user_file,log_file,trainfile,testfile):
 			else:
 				ad_feat=""
 			
-			if dt=="20170513":
+			if dt=="2017-05-13":
 				fdout1.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,time_format,pid,user_feat,ad_feat,clk))
 			else:
 				fdout.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,time_format,pid,user_feat,ad_feat,clk))
