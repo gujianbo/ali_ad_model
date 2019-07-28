@@ -41,11 +41,12 @@ def import_user(user_file):
 	return user_map
 	
 
-def gen_train(ad_file,user_file,log_file,outfile):
+def gen_train(ad_file,user_file,log_file,trainfile,testfile):
 	ad_map=import_ad(ad_file)
 	user_map=import_user(user_file)
 	
-	fdout=open(outfile,"w")
+	fdout=open(trainfile,"w")
+	fdout1=open(testfile,"w")
 	cnt=0
 	with open(log_file,"r") as fd:
 		for line in fd:
@@ -60,6 +61,7 @@ def gen_train(ad_file,user_file,log_file,outfile):
 				tm=abs(int(time_stamp))
 				tm=time.localtime(tm)
 				tm=time.strftime('%Y-%m-%d %H:%M:%S',tm)
+				dt=time.strftime('%Y-%m-%d',tm)
 			except:
 				print("Error line:",line)
 				continue
@@ -78,9 +80,13 @@ def gen_train(ad_file,user_file,log_file,outfile):
 			else:
 				ad_feat=""
 			
-			fdout.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,tm,pid,user_feat,ad_feat,clk))
+			if dt=="20170513":
+				fdout1.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,tm,pid,user_feat,ad_feat,clk))
+			else:
+				fdout.write("%s,%s,%s,%s|%s|%s|%s\n"%(user_id,adgroup_id,tm,pid,user_feat,ad_feat,clk))
 	
 	fdout.close()
+	fdout1.close()
 
 if __name__=="__main__":
-	gen_train(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+	gen_train(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5])
