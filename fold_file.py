@@ -1,6 +1,6 @@
 import sys,time
 
-def fold(file,prefix)
+def fold(file,prefix):
 	fdout={}
 	with open(infile,"r") as fd:
 		for line in fd:
