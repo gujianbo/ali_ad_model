@@ -14,7 +14,7 @@ def fold(infile,prefix):
 				print("Error line:",line)
 				continue
 			if dt>='20170422' or dt<='20170513':
-				if not fdout.has_key(dt):
+				if dt in fdout:
 					fdout[dt]=open(prefix+"/behavior_"+dt+".csv","w")
 				fdout[dt].write(line+"\n")
 	for value in fdout.values():
