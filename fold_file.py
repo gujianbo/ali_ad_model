@@ -5,6 +5,7 @@ def fold(infile,prefix):
 	with open(infile,"r") as fd:
 		for line in fd:
 			try:
+				line=line.strip()
 				(user_id,time_stamp,btag,cate,brand)=line.split(",")
 				tm=abs(int(time_stamp))
 				tm=time.localtime(tm)
