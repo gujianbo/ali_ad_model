@@ -13,7 +13,7 @@ def fold(infile,prefix):
 			except:
 				print("Error line:",line)
 				continue
-			if dt>='20170422' or dt<='20170513':
+			if dt>='20170422' and dt<='20170513':
 				if dt not in fdout:
 					fdout[dt]=open(prefix+"/behavior_"+dt+".csv","w")
 				fdout[dt].write(line+"\n")
