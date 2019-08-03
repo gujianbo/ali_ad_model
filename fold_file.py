@@ -1,6 +1,6 @@
 import sys,time
 
-def fold(file,prefix):
+def fold(infile,prefix):
 	fdout={}
 	with open(infile,"r") as fd:
 		for line in fd:
@@ -15,7 +15,7 @@ def fold(file,prefix):
 				continue
 			if dt>='20170422' or dt<='20170513':
 				if not fdout.has_key(dt):
-					fdout[dt]=open(prefix+"/behavior_"+dt+".csv")
+					fdout[dt]=open(prefix+"/behavior_"+dt+".csv","w")
 				fdout[dt].write(line+"\n")
 	for value in fdout.values():
 		value.close()
