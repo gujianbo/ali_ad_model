@@ -7,7 +7,7 @@ def readfile(file):
 	with open(file,"r") as fd:
 		for line in fd:
 			cnt+=1
-			if cnt%100000==0:
+			if cnt%1000000==0:
 				print(str(cnt)+" lines")
 			try:
 				(user_id,time_stamp,btag,cate,brand)=line.split(",")
