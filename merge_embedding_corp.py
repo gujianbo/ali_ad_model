@@ -3,6 +3,7 @@ import sys,time,os
 user_rec={}
 def readfile(fold,outfile):
 	for filename in os.listdir(fold):
+		print(filename)
 		if not fold.endswith("_corp"):
 			continue
 		print("process "+filename)
