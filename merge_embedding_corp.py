@@ -8,7 +8,7 @@ def readfile(fold,outfile):
 		if not filename.endswith("_corp"):
 			filelist.append(filename)
 	filelist.sort()
-	print("files:"+filelist)
+	print(filelist)
 	for filename in filelist:
 		print("process "+filename)
 		with open(fold+filename,"r") as fd:
