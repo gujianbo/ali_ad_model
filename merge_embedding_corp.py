@@ -4,10 +4,10 @@ user_rec={}
 def readfile(fold,outfile):
 	for filename in os.listdir(fold):
 		print(filename)
-		if not fold.endswith("_corp"):
+		if not filename.endswith("_corp"):
 			continue
-		print("process "+filename)
-		with open(filename,"r") as fd:
+		print("process "+fold+filename)
+		with open(fold+filename,"r") as fd:
 			cnt=0
 			for line in fd:
 				cnt+=1
