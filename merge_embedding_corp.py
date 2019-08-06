@@ -1,4 +1,4 @@
-import sys,time
+import sys,time,os
 
 user_rec={}
 def readfile(fold,outfile):
