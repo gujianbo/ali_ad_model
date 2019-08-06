@@ -6,7 +6,7 @@ def readfile(fold,outfile):
 	for filename in os.listdir(fold):
 		print(filename)
 		if not filename.endswith("_corp"):
-			filelist.add(filename)
+			filelist.append(filename)
 	filelist.sort()
 	print("files:"+filelist)
 	for filename in filelist:
