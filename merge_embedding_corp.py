@@ -2,11 +2,15 @@ import sys,time,os
 
 user_rec={}
 def readfile(fold,outfile):
+	filelist=[]
 	for filename in os.listdir(fold):
 		print(filename)
 		if not filename.endswith("_corp"):
-			continue
-		print("process "+fold+filename)
+			filelist.add(filename)
+	filelist.sort()
+	print("files:"+filelist)
+	for filename in filelist:
+		print("process "+filename)
 		with open(fold+filename,"r") as fd:
 			cnt=0
 			for line in fd:
