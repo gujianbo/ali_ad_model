@@ -23,7 +23,7 @@ def readfile(fold,outfile):
 					(user,words)=line.split("\t")
 					bk = bucket(user)
 					if bk not in fdout:
-						fdout[bk] =open(outfile+"/"+str(bk),"w")
+						fdout[bk] =open(outfile+"_"+str(bk),"w")
 					fdout[bk].write(line+"\n")
 				except:
 					print("Error line:",line)
