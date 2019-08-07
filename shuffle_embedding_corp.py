@@ -33,7 +33,7 @@ def readfile(fold,outfile):
 		fdout[k].close()
 
 def bucket(user):
-	hash_md5 = hashlib.md5(user.encode("utf-8"))
+	hash_md5 = hashlib.md5(user.encode("utf-8")).hexdigest()
 	hash_md5_hex = hash_md5[15:20]
 	return int(hash_md5_hex, 16)%16
 
