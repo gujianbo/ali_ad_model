@@ -34,7 +34,7 @@ def readfile(fold,outfile):
 
 def bucket(user):
 	hash_md5 = hashlib.md5(user.encode("utf-8"))
-	hash_md5_hex = hash_md5.subString(15,20)
+	hash_md5_hex = hash_md5.subString[15,20]
 	return int(hash_md5_hex, 16)%16
 
 if __name__=="__main__":
